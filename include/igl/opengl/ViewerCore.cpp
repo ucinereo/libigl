@@ -310,7 +310,7 @@ IGL_INLINE void igl::opengl::ViewerCore::initialize_shadow_pass()
   camera_dfar = exp2( 0.5 * ( log2(camera_dnear) + log2(camera_dfar)));
   igl::look_at( camera_eye, camera_center, camera_up, shadow_view);
   shadow_view = shadow_view
-    * (trackball_angle * Eigen::Scaling(camera_zoom * camera_base_zoom)
+    * (Eigen::Scaling(camera_zoom * camera_base_zoom)
     * Eigen::Translation3f(camera_translation + camera_base_translation)).matrix();
 
   float length = (camera_eye - camera_center).norm();
